@@ -24,6 +24,7 @@ In this lab, you will learn how to perform the following tasks:
 		
 		gcloud compute firewall-rules create default-allow-http --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server
 
+
 2. Create a Compute Engine virtual machine using the gcloud command-line interface
 
 	a) List zones available in "us-central1" region
