@@ -1,0 +1,67 @@
+# LAB 04: Google Cloud Fundamentals: Getting Started with GKE
+
+## By Kingsley David
+
+## Overview
+
+In this lab, you create a Google Kubernetes Engine cluster containing several containers, each containing a web server. You place a load balancer in front of the cluster and view its contents.
+
+## Objectives
+
+In this lab, you learn how to perform the following tasks:
+
+	a. Provision a Kubernetes cluster using Kubernetes Engine.
+
+	b. Deploy and manage Docker containers using kubectl.
+
+
+1. Start a Kubernetes Engine cluster
+
+	a) Activate Google Container Registry API and Kubernetes Engine API though the Cloud Console
+
+	b) Export the default zone by creating an environment variable
+
+		export MY_ZONE=us-central1-a
+
+	c) Start a Kubernetes cluster 'webfrontend' managed by Kubernetes Engine
+
+		gcloud container clusters create webfrontend --zone $MY_ZONE --num-nodes 2
+
+	d) Obtain the installed version of Kubernetes installed
+
+		kubectl version
+
+	e) View running nodes using the GCP Console
+
+2. Run and Deploy a Container
+
+	a) Launch a single instance of the nginx container
+
+		kubectl create deploy nginx --image=nginx:1.17.10
+
+	b) View the pod running the nginx container
+
+		kubectl get pods
+
+	c) Expose the nginx container to the internet
+
+		kubectl expose deployment nginx --port 80 --type LoadBalancer
+
+	d) View the newly created service
+
+		kubectl get services
+
+	e) Scale up the number of pods running on your service
+
+		kubectl scale deployment nginx --replicas 3
+
+	f) Confirm the Kubernetes has updated the number of pods
+
+		kubectl get pods
+
+	g) Confirm that your external IP address has not changed
+
+		kubectl get services
+
+	h) Visit a web page with the external IP address of your cluser to verify and confirm that the nginx web server is still responding.
+
