@@ -26,9 +26,9 @@ In this lab, you learn how to perform the following tasks:
 
 		gcloud app create --project=$DEVSHELL_PROJECT_ID
 
-	Enter a preferred region when prompted
+		Enter a preferred region when prompted
 
-	b) Clone the source code repository for a smaple application in the hello world directory.
+	b) Clone the source code repository for a sample application in the hello world directory.
 
 		git clone https://github.com/GoogleCloudPlatform/python-docs-samples
 
